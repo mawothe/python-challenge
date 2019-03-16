@@ -7,8 +7,8 @@ import pandas as pd
 voting_file = os.path.join("Resources", "election_data.csv")
 
 #Create data frame
-vote_df = pd.read_csv(voting_file)
-vote_df.head()
+vote = pd.read_csv(voting_file)
+vote_df = pd.DataFrame(vote)
 
 #The total number of votes cast
 total_votes = vote_df.describe
@@ -17,7 +17,7 @@ total_votes = vote_df.describe
 candidates = vote_df("candidate").unique()
 
 #The percentage of votes each candidate won
-
+vote_percent = (vote_df("candidate")/total_votes)
 
 #The total number of votes each candidate won
 counting_votes = vote_df("candidate").value_counts()
